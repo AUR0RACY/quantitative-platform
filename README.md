@@ -1,21 +1,21 @@
 # quantitative-platform
 
-量化交易平台 — 类开拓者（Trailblazer）风格，在 Windows 环境下运行的量化交易系统。
+A quantitative trading platform — Trailblazer-inspired, built for Windows.
 
-## 功能规划
+## Planned Features
 
-- 📈 **行情展示**: 实时行情走势、K 线图、技术指标
-- 🧠 **量化策略语言**: 与交易者平台兼容的策略语法
-- ⚡ **策略回测与执行**: 编写、测试、运行量化策略
+- 📈 **Market Data & Charts**: Real-time quotes, candlestick charts, technical indicators
+- 🧠 **Strategy Language**: A custom DSL compatible with the Trader Platform ecosystem
+- ⚡ **Backtesting & Execution**: Write, test, and run quantitative strategies
 
-## 状态
+## Status
 
-🚧 早期设计阶段 — 正在通过 `grill-with-docs` 细化需求。
+🚧 Early design phase — requirements are being refined via `grill-with-docs`.
 
-## 技术栈
+## Tech Stack
 
-待确定（将在设计阶段明确）。
+TBD (to be decided during the design phase).
 
-## 许可证
+## License
 
-待定
+TBD

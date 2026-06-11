@@ -1,22 +1,22 @@
 # Issue tracker: GitHub
 
-Issues 和 PRD 以 GitHub Issues 形式存放在 [AUR0RACY/quantitative-platform](https://github.com/AUR0RACY/quantitative-platform)。所有操作使用 `gh` CLI。
+Issues and PRDs for this repo live as GitHub issues in [AUR0RACY/quantitative-platform](https://github.com/AUR0RACY/quantitative-platform). Use the `gh` CLI for all operations.
 
-## 约定
+## Conventions
 
-- **创建 Issue**: `gh issue create --title "..." --body "..."`。多行正文使用 heredoc。
-- **读取 Issue**: `gh issue view <number> --comments`，通过 `jq` 过滤评论并获取标签。
-- **列出 Issue**: `gh issue list --state open --json number,title,body,labels,comments --jq '[.[] | {number, title, body, labels: [.labels[].name], comments: [.comments[].body]}]'`，配合 `--label` 和 `--state` 过滤。
-- **评论 Issue**: `gh issue comment <number> --body "..."`
-- **添加/移除标签**: `gh issue edit <number> --add-label "..."` / `--remove-label "..."`
-- **关闭 Issue**: `gh issue close <number> --comment "..."`
+- **Create an issue**: `gh issue create --title "..." --body "..."`. Use a heredoc for multi-line bodies.
+- **Read an issue**: `gh issue view <number> --comments`, filtering comments by `jq` and also fetching labels.
+- **List issues**: `gh issue list --state open --json number,title,body,labels,comments --jq '[.[] | {number, title, body, labels: [.labels[].name], comments: [.comments[].body]}]'` with appropriate `--label` and `--state` filters.
+- **Comment on an issue**: `gh issue comment <number> --body "..."`
+- **Apply / remove labels**: `gh issue edit <number> --add-label "..."` / `--remove-label "..."`
+- **Close**: `gh issue close <number> --comment "..."`
 
-通过 `git remote -v` 推断仓库 — `gh` 在克隆仓库内运行时会自动处理。
+Infer the repo from `git remote -v` — `gh` does this automatically when run inside a clone.
 
-## 当 skill 说"发布到 issue 追踪器"
+## When a skill says "publish to the issue tracker"
 
-创建 GitHub Issue。
+Create a GitHub issue.
 
-## 当 skill 说"获取相关的工单"
+## When a skill says "fetch the relevant ticket"
 
-运行 `gh issue view <number> --comments`。
+Run `gh issue view <number> --comments`.
