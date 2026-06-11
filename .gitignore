@@ -1,0 +1,39 @@
+# Windows
+Thumbs.db
+Desktop.ini
+*.exe
+*.dll
+*.pdb
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Scratch (local issue tracker fallback)
+.scratch/
