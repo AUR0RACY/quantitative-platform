@@ -109,10 +109,9 @@ A Trailblazer-inspired quantitative trading platform. Free, self-use, built for 
 | 1 | 项目骨架（CMake + Qt6 + C++20） | ✅ |
 | 2 | 数据层（SQLite + Schema + CRUD） | ✅ |
 | 3 | 回测引擎（逐 Bar 执行 + DLL 热加载） | ✅ |
-| 4 | UI（K线图 + 策略编辑 + 账户面板） | 🔜 |
-| 4 | UI（K线图 + 策略编辑 + 账户面板） | ⏳ |
-| 5 | 实盘（CTP + SimNow + 下单） | ⏳ |
-| 6 | 扩展（OKX + 更多指标 + 报告） | ⏳ |
+| 4 | UI（K线图 + 策略编辑 + 账户面板） | ✅ |
+| 5 | 实盘（CTP + SimNow + 下单） | 🔜 |
+| 6 | 扩展（OKX + 蜡烛图 + 更多指标 + 报告） | ⏳ |
 
 ### Phase 2 成果
 

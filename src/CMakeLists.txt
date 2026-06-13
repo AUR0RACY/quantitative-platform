@@ -32,12 +32,23 @@ add_executable(qp_app
     main.cpp
     ui/mainwindow.hpp
     ui/mainwindow.cpp
+    ui/chart_panel.hpp
+    ui/chart_panel.cpp
+    ui/strategy_panel.hpp
+    ui/strategy_panel.cpp
+    ui/backtest_panel.hpp
+    ui/backtest_panel.cpp
+    ui/account_panel.hpp
+    ui/account_panel.cpp
+    # QCustomPlot
+    ui/qcustomplot.h
+    ui/qcustomplot.cpp
 )
 target_link_libraries(qp_app PRIVATE
     qp_core
     qp_data
     qp_engine
-    Qt6::Core Qt6::Gui Qt6::Widgets Qt6::SvgWidgets
+    Qt6::Core Qt6::Gui Qt6::Widgets Qt6::SvgWidgets Qt6::PrintSupport
 )
 set_target_properties(qp_app PROPERTIES
     WIN32_EXECUTABLE TRUE

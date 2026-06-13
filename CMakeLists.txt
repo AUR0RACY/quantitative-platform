@@ -27,7 +27,7 @@ FetchContent_MakeAvailable(SQLiteCpp)
 
 # ---- Qt6 ----
 set(CMAKE_PREFIX_PATH "C:/Qt/6.8.3/msvc2022_64")
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets SvgWidgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets SvgWidgets PrintSupport)
 
 # ---- Options ----
 option(BUILD_TESTS "Build unit tests" ON)
