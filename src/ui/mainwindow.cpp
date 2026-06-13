@@ -62,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     navLayout->addStretch();
 
     // Version label at bottom
-    auto *ver = new QLabel("v0.4");
+    auto *ver = new QLabel("v0.5");
     ver->setAlignment(Qt::AlignCenter);
     ver->setStyleSheet("color: #555; font-size: 10px;");
     navLayout->addWidget(ver);
@@ -83,13 +83,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     m_strategyPanel = new StrategyPanel;
     m_backtestPanel = new BacktestPanel;
 
-    // Trade panel placeholder
-    m_tradePanel = new QWidget;
-    auto *tpLayout = new QVBoxLayout(m_tradePanel);
-    auto *tpLabel = new QLabel("Trade Panel\n\n(Phase 5 — CTP + SimNow integration)");
-    tpLabel->setAlignment(Qt::AlignCenter);
-    tpLabel->setStyleSheet("color: #888; font-size: 16px;");
-    tpLayout->addWidget(tpLabel);
+    m_tradePanel = new TradePanel;
 
     m_accountPanel = new AccountPanel;
 

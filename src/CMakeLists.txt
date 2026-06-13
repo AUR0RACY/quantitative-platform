@@ -11,9 +11,14 @@ add_library(qp_data STATIC
     data/data_layer.cpp
     data/database.hpp
     data/database.cpp
+    data/ctp/ctp_types.hpp
+    data/ctp/md_adapter.hpp
+    data/ctp/md_adapter.cpp
+    data/ctp/trader_adapter.hpp
+    data/ctp/trader_adapter.cpp
 )
 target_include_directories(qp_data PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(qp_data PUBLIC qp_core SQLiteCpp)
+target_link_libraries(qp_data PUBLIC qp_core SQLiteCpp Qt6::Core)
 
 # Engine layer — backtest + strategy infrastructure (no Qt)
 add_library(qp_engine STATIC
@@ -40,6 +45,8 @@ add_executable(qp_app
     ui/backtest_panel.cpp
     ui/account_panel.hpp
     ui/account_panel.cpp
+    ui/trade_panel.hpp
+    ui/trade_panel.cpp
     # QCustomPlot
     ui/qcustomplot.h
     ui/qcustomplot.cpp

@@ -7,6 +7,7 @@
 #include "chart_panel.hpp"
 #include "strategy_panel.hpp"
 #include "backtest_panel.hpp"
+#include "trade_panel.hpp"
 #include "account_panel.hpp"
 
 class MainWindow : public QMainWindow {
@@ -18,10 +19,10 @@ public:
     ChartPanel    *chartPanel()    { return m_chartPanel; }
     StrategyPanel *strategyPanel() { return m_strategyPanel; }
     BacktestPanel *backtestPanel() { return m_backtestPanel; }
+    TradePanel    *tradePanel()    { return m_tradePanel; }
     AccountPanel  *accountPanel()  { return m_accountPanel; }
 
 private:
-    void setupNavbar();
     void setupTheme();
     void switchPage(int index);
 
@@ -29,7 +30,7 @@ private:
     ChartPanel     *m_chartPanel;
     StrategyPanel  *m_strategyPanel;
     BacktestPanel  *m_backtestPanel;
-    QWidget        *m_tradePanel;   // placeholder for Phase 5
+    TradePanel     *m_tradePanel;
     AccountPanel   *m_accountPanel;
     QVector<QPushButton*> m_navBtns;
 };

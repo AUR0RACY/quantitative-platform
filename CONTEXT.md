@@ -110,7 +110,16 @@ A Trailblazer-inspired quantitative trading platform. Free, self-use, built for 
 | 2 | 数据层（SQLite + Schema + CRUD） | ✅ |
 | 3 | 回测引擎（逐 Bar 执行 + DLL 热加载） | ✅ |
 | 4 | UI（K线图 + 策略编辑 + 账户面板） | ✅ |
-| 5 | 实盘（CTP + SimNow + 下单） | 🔜 |
+| 5 | 实盘（CTP + SimNow + 下单） | ✅ |
+| 6 | 扩展（OKX + 蜡烛图 + 更多指标） | 🔜 |
+
+### Phase 5 成果
+
+- **CTP 适配器**：MdAdapter + TraderAdapter，完整 CTP 类型桩（62 个结构体）
+- **模拟行情**：500ms 间隔模拟 Tick，价格随机游走
+- **交易面板**：下单控件 + 持仓表 + 委托表 + P&L 实时显示
+- **账户面板**：CTP 连接设置（地址/用户/密码/授权码）+ 连接状态 + 批量交易
+- **完整连线**：MD→Chart / Trader→Trade Panel / Account→CTP
 | 6 | 扩展（OKX + 蜡烛图 + 更多指标 + 报告） | ⏳ |
 
 ### Phase 2 成果
