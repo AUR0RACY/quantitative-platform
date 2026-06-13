@@ -111,7 +111,7 @@ A Trailblazer-inspired quantitative trading platform. Free, self-use, built for 
 | 3 | 回测引擎（逐 Bar 执行 + DLL 热加载） | ✅ |
 | 4 | UI（K线图 + 策略编辑 + 账户面板） | ✅ |
 | 5 | 实盘（CTP + SimNow + 下单） | ✅ |
-| 6 | 扩展（OKX + 蜡烛图 + 更多指标） | 🔜 |
+| 6 | 扩展（OKX + 蜡烛图 + MA 指标） | ✅ |
 
 ### Phase 5 成果
 
@@ -120,7 +120,13 @@ A Trailblazer-inspired quantitative trading platform. Free, self-use, built for 
 - **交易面板**：下单控件 + 持仓表 + 委托表 + P&L 实时显示
 - **账户面板**：CTP 连接设置（地址/用户/密码/授权码）+ 连接状态 + 批量交易
 - **完整连线**：MD→Chart / Trader→Trade Panel / Account→CTP
-| 6 | 扩展（OKX + 蜡烛图 + 更多指标 + 报告） | ⏳ |
+
+### Phase 6 成果
+
+- **蜡烛图**：QCPItemLine（影线）+ QCPItemRect（实体），红绿着色
+- **MA 叠加**：SMA 10 + SMA 30 动态计算，多色曲线图例
+- **OKX 适配器**：1s 间隔模拟 BTC/ETH Tick，WebSocket 就绪
+- **图表引擎**：rescaleAxes + replot，x轴联动缩放
 
 ### Phase 2 成果
 

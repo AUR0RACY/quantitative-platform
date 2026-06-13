@@ -16,6 +16,8 @@ add_library(qp_data STATIC
     data/ctp/md_adapter.cpp
     data/ctp/trader_adapter.hpp
     data/ctp/trader_adapter.cpp
+    data/okx/okx_adapter.hpp
+    data/okx/okx_adapter.cpp
 )
 target_include_directories(qp_data PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(qp_data PUBLIC qp_core SQLiteCpp Qt6::Core)

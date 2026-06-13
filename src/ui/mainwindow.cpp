@@ -62,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     navLayout->addStretch();
 
     // Version label at bottom
-    auto *ver = new QLabel("v0.5");
+    auto *ver = new QLabel("v0.6");
     ver->setAlignment(Qt::AlignCenter);
     ver->setStyleSheet("color: #555; font-size: 10px;");
     navLayout->addWidget(ver);
@@ -97,30 +97,42 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setCentralWidget(central);
 
     // ---- Status bar ----
-    statusBar()->showMessage("Ready  |  Data: SQLite  |  Engine: Phase 3  |  UI: Phase 4");
+    statusBar()->showMessage("Ready  |  v0.6  |  CTP Sim + OKX  |  Candlestick + MA");
     statusBar()->setStyleSheet("QStatusBar { background-color: #1a1a1a; color: #888; }");
 
-    // ---- Load demo data into chart ----
-    QVector<double> time, open, high, low, close, vol;
-    auto now = std::chrono::system_clock::now();
-    double price = 5200.0;
-    for (int i = 0; i < 60; ++i) {
-        double t = std::chrono::duration_cast<std::chrono::seconds>(
-            (now + std::chrono::hours(i)).time_since_epoch()).count();
-        time.append(t);
-        double change = (std::sin(i * 0.4) * 30.0) + (std::cos(i * 0.15) * 15.0);
-        double o = price;
-        double c = price + change + (rand() % 20 - 10);
-        double h = std::max(o, c) + std::abs(rand() % 10);
-        double l = std::min(o, c) - std::abs(rand() % 10);
-        open.append(o);
-        high.append(h);
-        low.append(l);
-        close.append(c);
-        vol.append(5000 + rand() % 10000);
-        price = c;
+    // ---- Load demo data with SMA indicators ----
+    {
+        CandlestickData d;
+        auto now = std::chrono::system_clock::now();
+        double price = 5200.0;
+        for (int i = 0; i < 60; ++i) {
+            double t = std::chrono::duration_cast<std::chrono::seconds>(
+                (now + std::chrono::hours(i)).time_since_epoch()).count();
+            d.time.append(t);
+            double change = (std::sin(i * 0.4) * 30.0) + (std::cos(i * 0.15) * 15.0);
+            double o = price;
+            double c = price + change + (rand() % 20 - 10);
+            d.open.append(o);
+            d.high.append(std::max(o, c) + std::abs(rand() % 15));
+            d.low.append(std::min(o, c) - std::abs(rand() % 15));
+            d.close.append(c);
+            d.volume.append(5000 + rand() % 10000);
+            price = c;
+        }
+        m_chartPanel->loadData(d);
+
+        // SMA 10
+        QVector<double> sma10;
+        double sum = 0; int w = 10;
+        for (int i = 0; i < d.close.size(); ++i) { sum += d.close[i]; if (i >= w) sum -= d.close[i-w]; sma10.append(sum / std::min(i+1, w)); }
+        m_chartPanel->addIndicator("SMA 10", d.time, sma10, QColor(38, 166, 91));
+
+        // SMA 30
+        QVector<double> sma30;
+        sum = 0; w = 30;
+        for (int i = 0; i < d.close.size(); ++i) { sum += d.close[i]; if (i >= w) sum -= d.close[i-w]; sma30.append(sum / std::min(i+1, w)); }
+        m_chartPanel->addIndicator("SMA 30", d.time, sma30, QColor(241, 196, 15));
     }
-    m_chartPanel->loadCandlestickData(time, open, high, low, close, vol);
 }
 
 void MainWindow::switchPage(int index) {
