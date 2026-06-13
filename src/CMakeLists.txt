@@ -15,6 +15,18 @@ add_library(qp_data STATIC
 target_include_directories(qp_data PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(qp_data PUBLIC qp_core SQLiteCpp)
 
+# Engine layer — backtest + strategy infrastructure (no Qt)
+add_library(qp_engine STATIC
+    engine/strategy_interface.hpp
+    engine/report.hpp
+    engine/dll_loader.hpp
+    engine/dll_loader.cpp
+    engine/backtest_engine.hpp
+    engine/backtest_engine.cpp
+)
+target_include_directories(qp_engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(qp_engine PUBLIC qp_core)
+
 # UI layer — Qt application
 add_executable(qp_app
     main.cpp
@@ -24,6 +36,7 @@ add_executable(qp_app
 target_link_libraries(qp_app PRIVATE
     qp_core
     qp_data
+    qp_engine
     Qt6::Core Qt6::Gui Qt6::Widgets Qt6::SvgWidgets
 )
 set_target_properties(qp_app PROPERTIES
@@ -31,3 +44,6 @@ set_target_properties(qp_app PROPERTIES
     OUTPUT_NAME "quant-platform"
     AUTOMOC ON
 )
+
+# ---- Strategy DLLs ----
+add_subdirectory(${CMAKE_SOURCE_DIR}/strategies strategies_build)
