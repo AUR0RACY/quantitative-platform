@@ -24,6 +24,17 @@ A Trailblazer-inspired quantitative trading platform. Free, self-use, built for 
 - **策略编写 + 平台开发**：C++
 - **避开开拓者专有语言（TBL）**
 
+### Tech stack
+
+| Layer | Choice |
+|---|---|
+| GUI Framework | Qt 6 |
+| Charting | QCustomPlot (MIT) |
+| Strategy compilation | MSVC → DLL hot-loading |
+| Strategy parameter tuning | DLL exports metadata; params editable without recompile |
+| Local storage | SQLite via SQLiteCpp |
+| Distribution | Portable (zip archive, no installer) |
+
 ### 执行模型
 
 - **逐 Bar 执行**（与开拓者一致，交易员无迁移成本）
@@ -84,11 +95,9 @@ A Trailblazer-inspired quantitative trading platform. Free, self-use, built for 
 
 ## 待确认
 
-- [ ] 技术栈（GUI 框架、图表库、编译器集成方式）
-- [ ] 策略参数热调整（是否需要像开拓者一样，改参数不需重编译）
-- [ ] 数字货币优先级（白银期货优先，OKX 后续扩展）
-- [ ] 数据存储方案（K 线/Tick 本地数据库选型）
-- [ ] 平台分发方式（单机安装包？便携版？）
+- [ ] 策略示例库（是否需要内置几个经典策略模板？）
+- [ ] 回测报告指标细节（除夏普/MDD外还需要什么？）
+- [ ] 风险控制面板（手动止损、强平线、单日最大亏损限制？）
 
 ---
 
