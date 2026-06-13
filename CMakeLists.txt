@@ -10,6 +10,21 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+# ---- FetchContent ----
+include(FetchContent)
+
+# SQLiteCpp (header-only C++ wrapper around SQLite3)
+FetchContent_Declare(
+    SQLiteCpp
+    GIT_REPOSITORY https://github.com/SRombauts/SQLiteCpp.git
+    GIT_TAG        3.3.3
+)
+# Disable SQLiteCpp tests and samples
+set(SQLITECPP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(SQLITECPP_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(SQLITECPP_INTERNAL_SQLITE ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(SQLiteCpp)
+
 # ---- Qt6 ----
 set(CMAKE_PREFIX_PATH "C:/Qt/6.8.3/msvc2022_64")
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets SvgWidgets)

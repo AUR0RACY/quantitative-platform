@@ -9,9 +9,11 @@ target_include_directories(qp_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(qp_data STATIC
     data/data_layer.hpp
     data/data_layer.cpp
+    data/database.hpp
+    data/database.cpp
 )
 target_include_directories(qp_data PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(qp_data PUBLIC qp_core)
+target_link_libraries(qp_data PUBLIC qp_core SQLiteCpp)
 
 # UI layer — Qt application
 add_executable(qp_app

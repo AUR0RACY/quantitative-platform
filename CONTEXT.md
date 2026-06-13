@@ -101,4 +101,26 @@ A Trailblazer-inspired quantitative trading platform. Free, self-use, built for 
 
 ---
 
-*最后更新：2026-06-11 | 通过 grill-with-docs 生成*
+---
+## 开发进度
+
+| Phase | 内容 | 状态 |
+|---|---|---|
+| 1 | 项目骨架（CMake + Qt6 + C++20） | ✅ |
+| 2 | 数据层（SQLite + Schema + CRUD） | ✅ |
+| 3 | 回测引擎（逐 Bar 执行 + DLL 热加载） | 🔜 |
+| 4 | UI（K线图 + 策略编辑 + 账户面板） | ⏳ |
+| 5 | 实盘（CTP + SimNow + 下单） | ⏳ |
+| 6 | 扩展（OKX + 更多指标 + 报告） | ⏳ |
+
+### Phase 2 成果
+
+- **数据库**：SQLite3 via SQLiteCpp（FetchContent 自动拉取）
+- **Schema**：instruments, bars, ticks, accounts 四张表
+- **API**：Instrument CRUD / Bar 读写 / Tick 读写 / Account CRUD
+- **测试**：10 个单元测试全部通过
+- **Navbar v2**：行情 / 策略 / 回测 / 交易 / 账户（仪表盘，勾选多账户一键下单）
+
+---
+
+*最后更新：2026-06-13 | Phase 2 完成*
